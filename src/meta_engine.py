@@ -139,7 +139,8 @@ class MetaEngine:
                 recommendations.extend([
                     ("random_forest", 0.8),
                     ("elastic_net", 0.7),
-                    ("gradient_boosting", 0.6)
+                    ("gradient_boosting", 0.6),
+                    ("linear_regression", 0.6)
                 ])
         
         # Large dataset recommendations
@@ -159,7 +160,8 @@ class MetaEngine:
                     ("xgboost", 0.9),
                     ("gradient_boosting", 0.8),
                     ("elastic_net", 0.7),
-                    ("random_forest", 0.6)
+                    ("random_forest", 0.6),
+                    ("linear_regression", 0.6)
                 ])
         
         # High-dimensional data adjustments
@@ -211,7 +213,7 @@ class MetaEngine:
             logger.info(f"Using GridSearchCV for {model_name}")
             search = GridSearchCV(
                 base_model, param_grid, cv=CV_FOLDS,
-                scoring=self._get_scoring_metric(problem_type),
+                scoring=self._get_scoring_metric(problem_type, y),
                 n_jobs=-1
             )
         else:
@@ -219,7 +221,7 @@ class MetaEngine:
             logger.info(f"Using RandomizedSearchCV for {model_name}")
             search = RandomizedSearchCV(
                 base_model, param_grid, cv=CV_FOLDS,
-                scoring=self._get_scoring_metric(problem_type),
+                scoring=self._get_scoring_metric(problem_type, y),
                 n_jobs=-1, random_state=RANDOM_SEED,
                 n_iter=20  # Limit iterations for speed
             )
@@ -267,9 +269,20 @@ class MetaEngine:
         min_class_ratio = value_counts.min() / value_counts.max()
         return min_class_ratio > 0.3  # Consider balanced if ratio > 30%
     
-    def _get_scoring_metric(self, problem_type: str) -> str:
-        """Get appropriate scoring metric for problem type."""
+    def _get_scoring_metric(self, problem_type: str, y: Optional[np.ndarray] = None) -> str:
+        """Get appropriate scoring metric for problem type.
+
+        Prefer ROC-AUC for classification when labels allow; fall back to accuracy.
+        """
         if problem_type == "classification":
+            try:
+                n_classes = len(np.unique(y)) if y is not None else None
+            except Exception:
+                n_classes = None
+            if n_classes == 2:
+                return "roc_auc"
+            if n_classes and n_classes > 2:
+                return "roc_auc_ovr_weighted"
             return "accuracy"
         else:
             return "neg_mean_squared_error"

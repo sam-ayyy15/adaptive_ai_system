@@ -51,7 +51,7 @@ class AdaptiveDashboard:
             initial_sidebar_state="expanded"
         )
         
-        st.title("🧠 Adaptive AI System")
+        st.title(" Intelligent Regression Analytics: A Machine Learning Predctive Model")
         st.markdown("*Universal AutoML Platform for Tabular Data*")
         
         # Sidebar navigation
@@ -248,6 +248,8 @@ class AdaptiveDashboard:
                     
                     # Split data
                     X_train, X_test, y_train, y_test = self.data_handler.prepare_data(target_column)
+                    # Persist the selected target for later prediction UIs
+                    st.session_state.target_column = target_column
                     progress_bar.progress(40, text="Data split complete...")
                     
                     # Train models
@@ -329,11 +331,17 @@ class AdaptiveDashboard:
             st.warning("Please train a model first in the 'Model Training' tab.")
             return
         
-        # Load model
+        # Load model once and cache across reruns for speed
+        @st.cache_resource(show_spinner=False)
+        def _load_trainer_cached() -> Trainer:
+            trainer_inst = Trainer()
+            trainer_inst.load_model("best_model.pkl")
+            return trainer_inst
+
         try:
-            self.trainer.load_model("best_model.pkl")
-        except:
-            st.error("Could not load trained model.")
+            self.trainer = _load_trainer_cached()
+        except Exception as e:
+            st.error(f"Could not load trained model: {e}")
             return
         
         # Prediction options
@@ -356,12 +364,13 @@ class AdaptiveDashboard:
             return
         
         data = st.session_state.current_data
+        target_col = st.session_state.get("target_column")
         
         # Create input form
         st.markdown("Enter values for prediction:")
         
         # Get feature columns (excluding target)
-        all_columns = data.columns.tolist()
+        all_columns = [c for c in data.columns.tolist() if c != target_col]
         
         # Create input form with all columns
         input_data = {}
@@ -390,30 +399,43 @@ class AdaptiveDashboard:
             try:
                 # Create prediction DataFrame
                 pred_df = pd.DataFrame([input_data])
-                
-                # Make prediction
-                prediction = self.trainer.predict(pred_df)
-                
-                # Display result
-                st.success(f"Prediction: {prediction[0]}")
-                
-                # Try to get probability if classification
+
+                # Prefer probabilities when available (classification)
+                showed_probability = False
                 try:
                     probabilities = self.trainer.predict_proba(pred_df)
-                    st.subheader("Prediction Probabilities")
-                    
-                    prob_df = pd.DataFrame({
-                        'Class': range(len(probabilities[0])),
-                        'Probability': probabilities[0]
-                    })
-                    
-                    fig = px.bar(prob_df, x='Class', y='Probability',
-                               title="Class Probabilities")
-                    st.plotly_chart(fig)
-                    
-                except:
-                    pass  # Not a classification problem or no probabilities
-                
+                    if probabilities is not None and len(probabilities.shape) == 2:
+                        if probabilities.shape[1] == 2:
+                            st.success(f"Probability: {float(probabilities[0][1]):.6f}")
+                            showed_probability = True
+                        else:
+                            st.subheader("Prediction Probabilities")
+                            prob_df = pd.DataFrame({
+                                'Class': range(len(probabilities[0])),
+                                'Probability': probabilities[0]
+                            })
+                            fig = px.bar(prob_df, x='Class', y='Probability', title="Class Probabilities")
+                            st.plotly_chart(fig)
+                            showed_probability = True
+                except Exception:
+                    pass
+
+                if not showed_probability:
+                    # Fall back to raw prediction (e.g., regression models)
+                    prediction = self.trainer.predict(pred_df)
+                    try:
+                        val = float(prediction[0])
+                    except Exception:
+                        val = float(prediction)
+
+                    # If outside [0,1], map to a probability via logistic
+                    if val < 0.0 or val > 1.0:
+                        import math
+                        prob = 1.0 / (1.0 + math.exp(-val))
+                        st.success(f"Probability : {prob:.6f}")
+                    else:
+                        st.success(f"Probability: {val:.6f}")
+
             except Exception as e:
                 st.error(f"Prediction failed: {str(e)}")
     
@@ -438,12 +460,35 @@ class AdaptiveDashboard:
                 
                 if st.button("Generate Predictions"):
                     with st.spinner("Making predictions..."):
-                        # Make predictions
-                        predictions = self.trainer.predict(pred_data)
-                        
-                        # Add predictions to dataframe
                         result_df = pred_data.copy()
-                        result_df['Prediction'] = predictions
+
+                        # Try probabilities first
+                        added_proba = False
+                        try:
+                            probas = self.trainer.predict_proba(pred_data)
+                            if probas is not None and len(probas.shape) == 2:
+                                if probas.shape[1] == 2:
+                                    result_df['Probability'] = probas[:, 1]
+                                    added_proba = True
+                                else:
+                                    for i in range(probas.shape[1]):
+                                        result_df[f'Prob_class_{i}'] = probas[:, i]
+                                    added_proba = True
+                        except Exception:
+                            pass
+
+                        if not added_proba:
+                            # Fall back to raw predictions; map to probability if needed
+                            predictions = self.trainer.predict(pred_data)
+                            try:
+                                import numpy as _np
+                                preds_array = _np.array(predictions, dtype=float)
+                                needs_map = (preds_array < 0).any() or (preds_array > 1).any()
+                                if needs_map:
+                                    preds_array = 1.0 / (1.0 + _np.exp(-preds_array))
+                                result_df['Probability'] = preds_array
+                            except Exception:
+                                result_df['Prediction'] = predictions
                         
                         # Display results
                         st.subheader("Prediction Results")

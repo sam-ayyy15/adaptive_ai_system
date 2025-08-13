@@ -34,6 +34,7 @@ MISSING_VALUE_THRESHOLD: float = 0.5  # Drop columns with >50% missing
 MAX_ITER: int = 1000
 N_JOBS: int = -1
 CV_FOLDS: int = 5
+TRAIN_TOP_K: int = 5  # Number of top recommended models to train/evaluate
 
 # Dashboard settings
 DASHBOARD_PORT: int = 8501
@@ -50,6 +51,13 @@ MODEL_CONFIGS: Dict[str, Dict[str, Any]] = {
         "param_grid": {
             "alpha": [0.01, 0.1, 1.0, 10.0],
             "l1_ratio": [0.1, 0.5, 0.9]
+        }
+    },
+    "linear_regression": {
+        "param_grid": {
+            # LinearRegression has few hyperparameters; include normalize-like behavior
+            # via fit_intercept toggle for completeness
+            "fit_intercept": [True, False]
         }
     },
     "random_forest": {

@@ -12,7 +12,7 @@ import numpy as np
 from sklearn.metrics import accuracy_score, mean_squared_error, r2_score, classification_report
 from sklearn.model_selection import cross_val_score
 
-from config import MODELS_DIR, TRAINING_LOG_FILE, CV_FOLDS, RANDOM_SEED
+from config import MODELS_DIR, TRAINING_LOG_FILE, CV_FOLDS, RANDOM_SEED, TRAIN_TOP_K
 from meta_engine import MetaEngine
 from feature_engineer import FeatureEngineer
 from model_zoo import ModelZoo
@@ -91,8 +91,8 @@ class Trainer:
         
         best_score = -np.inf if problem_type == "regression" else 0.0
         
-        # Test top 3 recommended models
-        for model_name, confidence in recommendations[:3]:
+        # Test top-K recommended models (configurable)
+        for model_name, confidence in recommendations[:TRAIN_TOP_K]:
             logger.info(f"Training {model_name} (confidence: {confidence:.2f})")
             
             try:
@@ -203,13 +203,31 @@ class Trainer:
     
     def _evaluate_model(self, model: Any, X: np.ndarray, y: np.ndarray, 
                        problem_type: str) -> float:
-        """Evaluate model performance with appropriate metrics."""
-        predictions = model.predict(X)
-        
+        """Evaluate model performance with appropriate metrics.
+
+        Prefer ROC-AUC for classification when probability scores are available; else accuracy.
+        """
+        # Classification
         if problem_type == "classification":
+            try:
+                if hasattr(model, "predict_proba"):
+                    proba = model.predict_proba(X)
+                    # Handle binary vs multi-class
+                    if proba.shape[1] == 2:
+                        from sklearn.metrics import roc_auc_score
+                        return roc_auc_score(y, proba[:, 1])
+                    else:
+                        from sklearn.metrics import roc_auc_score
+                        return roc_auc_score(y, proba, multi_class="ovr", average="weighted")
+            except Exception:
+                pass
+            # Fallback
+            predictions = model.predict(X)
             return accuracy_score(y, predictions)
-        else:
-            return r2_score(y, predictions)
+        
+        # Regression
+        predictions = model.predict(X)
+        return r2_score(y, predictions)
     
     def _get_detailed_metrics(self, model: Any, X: np.ndarray, y: np.ndarray,
                             problem_type: str) -> Dict[str, Any]:
@@ -264,14 +282,43 @@ class Trainer:
         logger.info(f"Model loaded from {model_path}")
     
     def predict(self, X: pd.DataFrame) -> np.ndarray:
-        """Make predictions using trained model."""
+        """Make predictions using trained model.
+
+        For classifiers, this method will prefer returning probabilities of the
+        positive class when available, to support probability-first UIs.
+        """
         if self.best_model is None:
             raise ValueError("No trained model available")
         
         # Process features
         X_processed = self.feature_engineer.transform(X)
         
-        # Make predictions
+        # Prefer probabilities when the model supports it
+        try:
+            if hasattr(self.best_model, 'predict_proba'):
+                proba = self.best_model.predict_proba(X_processed)
+                # Binary classification → return prob of class 1
+                if proba.ndim == 2 and proba.shape[1] == 2:
+                    return proba[:, 1]
+                return proba
+        except Exception:
+            pass
+
+        # Fallback: derive probabilities from decision function if possible
+        try:
+            if hasattr(self.best_model, 'decision_function'):
+                scores = self.best_model.decision_function(X_processed)
+                # Binary case: sigmoid
+                import numpy as _np
+                if scores.ndim == 1:
+                    return 1.0 / (1.0 + _np.exp(-scores))
+                # Multi-class: softmax
+                exps = _np.exp(scores - _np.max(scores, axis=1, keepdims=True))
+                return exps / _np.sum(exps, axis=1, keepdims=True)
+        except Exception:
+            pass
+
+        # Final fallback to raw predictions (e.g., regression models)
         predictions = self.best_model.predict(X_processed)
         
         # Inverse transform if needed
@@ -285,13 +332,26 @@ class Trainer:
         if self.best_model is None:
             raise ValueError("No trained model available")
         
-        if not hasattr(self.best_model, 'predict_proba'):
-            raise ValueError("Model doesn't support probability predictions")
-        
         # Process features
         X_processed = self.feature_engineer.transform(X)
-        
-        return self.best_model.predict_proba(X_processed)
+
+        # Native probabilities when available
+        if hasattr(self.best_model, 'predict_proba'):
+            return self.best_model.predict_proba(X_processed)
+
+        # Fallback: construct probabilities from decision_function
+        if hasattr(self.best_model, 'decision_function'):
+            scores = self.best_model.decision_function(X_processed)
+            import numpy as _np
+            if scores.ndim == 1:
+                # Binary: sigmoid to [0,1]; return two-column probs for consistency
+                p1 = 1.0 / (1.0 + _np.exp(-scores))
+                return _np.vstack([1.0 - p1, p1]).T
+            # Multi-class: softmax rows
+            exps = _np.exp(scores - _np.max(scores, axis=1, keepdims=True))
+            return exps / _np.sum(exps, axis=1, keepdims=True)
+
+        raise ValueError("Model doesn't support probability predictions")
     
     def _log_training_results(self, results: Dict[str, Any]) -> None:
         """Log training results to file."""

@@ -578,5 +578,2362 @@
         ]
       }
     }
+  },
+  {
+    "timestamp": "2025-08-06T15:44:26.518542",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-07T16:10:29.946827",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.7007315706117,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688103,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.7007315706117,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-07T16:23:16.572885",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688103,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-09T13:08:14.072768",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688103,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:06:04.886617",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:23:01.698916",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:23:41.389952",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:24:19.727378",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:26:50.461908",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:27:32.578211",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:28:15.500505",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "gradient_boosting",
+        "random_forest"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.953125,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "test_scores": {
+        "random_forest": 0.9166666666666666,
+        "gradient_boosting": 0.953125
+      },
+      "cross_val_scores": {
+        "random_forest": 1.0,
+        "gradient_boosting": 0.975
+      },
+      "feature_importance": {
+        "feature_2": 0.9199157912698135,
+        "feature_1": 0.03133851604629325,
+        "feature_3": 0.024127703286674778,
+        "feature_9": 0.007550807516212292,
+        "feature_0": 0.004813542214587479,
+        "feature_5": 0.0043309571146123715,
+        "feature_6": 0.0042417253085933184,
+        "feature_8": 0.0036809572432128855,
+        "feature_4": 8.531171568264158e-18,
+        "feature_7": 0.0
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 80,
+          "n_features": 10,
+          "problem_type": "classification",
+          "target_distribution": {
+            "0": 42,
+            "1": 38
+          },
+          "feature_types": {
+            "numeric": 10,
+            "categorical": 0,
+            "numeric_features": [
+              "feature_0",
+              "feature_1",
+              "feature_2",
+              "feature_3",
+              "feature_4",
+              "feature_5",
+              "feature_6",
+              "feature_7",
+              "feature_8",
+              "feature_9"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.0
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 8.0,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          },
+          "n_classes": 2,
+          "is_balanced": true
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "gradient_boosting",
+            0.7
+          ],
+          [
+            "random_forest",
+            0.7
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:34:03.526628",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688125,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:42:36.766704",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.7007315706117,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688103,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.7007315706117,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:46:14.567994",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688125,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T20:49:33.500106",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T21:21:22.560607",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ],
+          [
+            "linear_regression",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T21:24:43.965124",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting",
+        "linear_regression"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992,
+        "linear_regression": 0.5296239685726127
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ],
+          [
+            "linear_regression",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-12T21:56:14.288817",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting",
+        "linear_regression"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688103,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992,
+        "linear_regression": 0.5296239685726127
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061172,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ],
+          [
+            "linear_regression",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-13T20:27:37.885952",
+    "results": {
+      "models_tested": [
+        "random_forest",
+        "elastic_net",
+        "gradient_boosting",
+        "linear_regression"
+      ],
+      "best_model_name": "gradient_boosting",
+      "best_score": 0.030500320277708992,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "training_scores": {
+        "random_forest": -122.70073157061174,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "test_scores": {
+        "random_forest": 0.43294833790688114,
+        "elastic_net": 0.4945631613092707,
+        "gradient_boosting": 0.030500320277708992,
+        "linear_regression": 0.5296239685726127
+      },
+      "cross_val_scores": {
+        "random_forest": -122.70073157061174,
+        "elastic_net": -123.39444474907945,
+        "gradient_boosting": -139.07803651577373,
+        "linear_regression": -158.85954379423526
+      },
+      "feature_importance": {
+        "V26": 0.6984593170448801,
+        "V1": 0.25180851921026876,
+        "V10": 0.022866809890719778,
+        "V5": 0.0144711732467671,
+        "V21": 0.007320264176020174,
+        "V16": 0.0013711148234733178,
+        "V4": 0.0011145335616550326,
+        "V27": 0.0003851888139033206,
+        "V19": 0.00037008588460365533,
+        "V3": 0.0003560778362375356,
+        "V15": 0.00030533074164210903,
+        "V14": 0.000279334973804134,
+        "Class": 0.00019198217769124813,
+        "V24": 0.0001726532269150812,
+        "V9": 0.00013462031311038453,
+        "V18": 0.00012699085959252805,
+        "V7": 0.00011748720355244107,
+        "V20": 7.307491835816164e-05,
+        "V11": 2.956878335079294e-05,
+        "V23": 2.330258538612379e-05
+      },
+      "analysis": {
+        "dataset_profile": {
+          "n_samples": 38,
+          "n_features": 30,
+          "problem_type": "regression",
+          "target_distribution": {
+            "mean": 21.92105263157895,
+            "std": 14.551644430055891,
+            "min": 0.0,
+            "max": 46.0
+          },
+          "feature_types": {
+            "numeric": 30,
+            "categorical": 0,
+            "numeric_features": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7",
+              "V8",
+              "V9",
+              "V10",
+              "V11",
+              "V12",
+              "V13",
+              "V14",
+              "V15",
+              "V16",
+              "V17",
+              "V18",
+              "V19",
+              "V20",
+              "V21",
+              "V22",
+              "V23",
+              "V24",
+              "V25",
+              "V26",
+              "V27",
+              "V28",
+              "Amount",
+              "Class"
+            ],
+            "categorical_features": []
+          },
+          "sparsity": {
+            "missing_ratio": 0.0,
+            "zero_ratio": 0.016666666666666666
+          },
+          "complexity_metrics": {
+            "samples_per_feature": 1.2666666666666666,
+            "is_high_dimensional": true,
+            "is_small_dataset": true,
+            "is_wide_dataset": false
+          }
+        },
+        "model_recommendations": [
+          [
+            "random_forest",
+            0.8
+          ],
+          [
+            "elastic_net",
+            0.7999999999999999
+          ],
+          [
+            "gradient_boosting",
+            0.6
+          ],
+          [
+            "linear_regression",
+            0.6
+          ]
+        ],
+        "recommended_strategy": "exhaustive_grid_search",
+        "expected_challenges": [
+          "high_dimensionality",
+          "small_sample_size"
+        ]
+      }
+    }
   }
 ]

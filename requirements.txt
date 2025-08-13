@@ -1,5 +1,6 @@
 pandas==2.0.3
-numpy==1.24.3
+# TensorFlow 2.16 requires NumPy >=1.26; align to ensure LSTM works on Python 3.10
+numpy==1.26.4
 scikit-learn==1.4.2
 xgboost==2.0.3
 tensorflow-cpu==2.16.1

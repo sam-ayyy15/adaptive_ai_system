@@ -5,7 +5,7 @@ Provides unified interface for ElasticNet, RF, GB, XGB, LSTM, and TabNet.
 import numpy as np
 import pandas as pd
 from typing import Any, Dict, Optional
-from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import ElasticNet, LinearRegression
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
 import xgboost as xgb
@@ -16,6 +16,9 @@ import xgboost as xgb
 import logging
 
 from config import RANDOM_SEED, MAX_ITER
+
+# Avoid importing TensorFlow at import-time to prevent Windows DLL issues during testing
+keras = None  # type: ignore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -37,8 +40,9 @@ class ModelZoo:
             "random_forest": self._create_random_forest,
             "gradient_boosting": self._create_gradient_boosting,
             "xgboost": self._create_xgboost,
-            # Temporarily disable TensorFlow models
-            # "lstm": self._create_lstm,
+            # Optional/conditional model (requires TensorFlow):
+            "lstm": self._create_lstm,
+            "linear_regression": self._create_linear_regression,
             # "tabnet": self._create_tabnet,
             # "prophet": self._create_prophet
         }
@@ -86,9 +90,10 @@ class ModelZoo:
         """Create Random Forest model."""
         if problem_type == "classification":
             return RandomForestClassifier(
-                n_estimators=100,
+                n_estimators=300,
                 max_depth=None,
                 min_samples_split=2,
+                class_weight="balanced_subsample",
                 random_state=RANDOM_SEED,
                 n_jobs=-1
             )
@@ -105,8 +110,8 @@ class ModelZoo:
         """Create Gradient Boosting model."""
         if problem_type == "classification":
             return GradientBoostingClassifier(
-                n_estimators=100,
-                learning_rate=0.1,
+                n_estimators=200,
+                learning_rate=0.05,
                 max_depth=3,
                 random_state=RANDOM_SEED
             )
@@ -122,9 +127,12 @@ class ModelZoo:
         """Create XGBoost model."""
         if problem_type == "classification":
             return xgb.XGBClassifier(
-                n_estimators=100,
-                learning_rate=0.1,
-                max_depth=3,
+                n_estimators=300,
+                learning_rate=0.05,
+                max_depth=4,
+                subsample=0.9,
+                colsample_bytree=0.9,
+                tree_method="hist",
                 random_state=RANDOM_SEED,
                 eval_metric='logloss'
             )
@@ -135,10 +143,30 @@ class ModelZoo:
                 max_depth=3,
                 random_state=RANDOM_SEED
             )
+
+    def _create_linear_regression(self, problem_type: str) -> Any:
+        """Create Linear Regression model (regression only)."""
+        if problem_type != "regression":
+            raise ValueError("Linear Regression is only applicable to regression problems")
+        return LinearRegression()
     
     def _create_lstm(self, problem_type: str) -> Any:
-        """Create LSTM model for time series."""
-        raise NotImplementedError("LSTM temporarily disabled due to TensorFlow issues")
+        """Create LSTM model for time series.
+
+        Note: Imports TensorFlow/Keras lazily to avoid DLL issues on Windows
+        when running environments that don't have TF installed.
+        """
+        # Lazy-import keras only when LSTM is requested
+        global keras  # use module-level name referenced by LSTMModel
+        if keras is None:  # type: ignore[name-defined]
+            try:  # pragma: no cover - environment dependent
+                from tensorflow import keras as _keras  # type: ignore
+                keras = _keras  # type: ignore
+            except Exception as exc:  # pragma: no cover
+                raise NotImplementedError(
+                    "LSTM requires TensorFlow/Keras which is not available in this environment."
+                ) from exc
+        return LSTMModel(problem_type)
     
     def _create_tabnet(self, problem_type: str) -> Any:
         """Create TabNet model."""
@@ -157,7 +185,14 @@ class LSTMModel:
     def __init__(self, problem_type: str, sequence_length: int = 10):
         self.problem_type = problem_type
         self.sequence_length = sequence_length
-        self.model: Optional[keras.Model] = None
+        # When keras is unavailable, surface a clear error upon usage
+        if keras is None:
+            # Delay error until someone actually tries to instantiate this
+            # class via ModelZoo; provide a clear message.
+            raise NotImplementedError(
+                "LSTM requires TensorFlow/Keras which is not available in this environment."
+            )
+        self.model: Optional[keras.Model] = None  # type: ignore[name-defined]
         self.scaler = None
         
     def _create_sequences(self, data: np.ndarray) -> tuple:

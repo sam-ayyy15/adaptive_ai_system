@@ -53,9 +53,9 @@ class FeatureEngineer:
         logger.info(f"Identified {len(self.numerical_features)} numerical and "
                    f"{len(self.categorical_features)} categorical features")
         
-        # Numerical preprocessing
+        # Numerical preprocessing (faster and robust)
         numerical_pipeline = Pipeline([
-            ('imputer', KNNImputer(n_neighbors=5)),
+            ('imputer', SimpleImputer(strategy='median')),
             ('scaler', StandardScaler())
         ])
         
